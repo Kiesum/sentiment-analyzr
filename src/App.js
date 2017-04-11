@@ -1,21 +1,38 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+import JournalList from './JournalList';
+import { getJournals } from './actions/index.js';
+import { connect } from 'react-redux';
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.getJournals();
+    console.log(this.props.journals)
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <h4>This is the dashboard</h4>
+        <JournalList journals={this.props.journals.journals} />
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    journals: state.journals
+  };
+}
+
+export default connect(mapStateToProps, { getJournals })(App);
+
+
+
+
+
+

@@ -29,3 +29,30 @@ r.connect( {host: 'localhost', port: 28015}, function(err, conn) {
     connection = conn;
 })
 
+app.get('/journals', listJournalItems)
+
+app.route('/journals')
+  .get(listJournalItems)
+  .post(createJournalItem);
+
+function listJournalItems(req, res, next) {
+  r.db('care_cru').table('journals').run(connection, function(err, cursor) {
+    if(err) {
+      console.log(err)
+      return next(err);
+    }
+
+    //Retrieve all the todos in an array.
+    cursor.toArray(function(err, result) {
+      if(err) {
+        return next(err);
+      }
+      console.log(result)
+      res.json(result);
+    });
+  });
+}
+
+function createJournalItem(req, res, next) {
+
+}
