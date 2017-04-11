@@ -1,0 +1,26 @@
+2017-04-10T17:32:00.908826000 0.337903s notice: Recursively removing directory /Users/kieransummerfeldt/projects/care-cru/rethinkdb_data/tmp
+2017-04-10T17:32:00.910464000 0.339546s notice: Initializing directory /Users/kieransummerfeldt/projects/care-cru/rethinkdb_data
+2017-04-10T17:32:00.910558000 0.339635s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/kieransummerfeldt/projects/care-cru/rethinkdb_data' did not already exist or is empty.)
+2017-04-10T17:32:00.910626000 0.339703s notice: Running rethinkdb 2.3.5 (CLANG 7.3.0 (clang-703.0.31))...
+2017-04-10T17:32:00.929031000 0.358109s notice: Running on Darwin 15.6.0 x86_64
+2017-04-10T17:32:00.929080000 0.358156s notice: Loading data from directory /Users/kieransummerfeldt/projects/care-cru/rethinkdb_data
+2017-04-10T17:32:01.082529000 0.511606s info: Automatically using cache size of 100 MB
+2017-04-10T17:32:01.082537000 0.511613s warn: Cache size does not leave much memory for server and query overhead (available memory: 1040 MB).
+2017-04-10T17:32:01.082542000 0.511618s warn: Cache size is very low and may impact performance.
+2017-04-10T17:32:01.083484000 0.512561s notice: Listening for intracluster connections on port 29015
+2017-04-10T17:32:01.084841000 0.513918s notice: Listening for client driver connections on port 28015
+2017-04-10T17:32:01.084962000 0.514039s notice: Listening for administrative HTTP connections on port 8080
+2017-04-10T17:32:01.084964000 0.514040s notice: Listening on cluster addresses: 127.0.0.1, ::1
+2017-04-10T17:32:01.084966000 0.514043s notice: Listening on driver addresses: 127.0.0.1, ::1
+2017-04-10T17:32:01.084968000 0.514045s notice: Listening on http addresses: 127.0.0.1, ::1
+2017-04-10T17:32:01.084972000 0.514049s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-04-10T17:32:01.084976000 0.514052s notice: Server ready, "Kierans_MacBook_Pro_3_local_ea9" d51427a3-ed0c-4894-acff-32d422bcb888
+2017-04-10T17:33:35.941306000 95.370383s info: Table 7f4648b8-e535-4bfc-96a3-3b06a49b3655: Starting a new Raft election for term 1.
+2017-04-10T17:33:35.941774000 95.370851s info: Table 7f4648b8-e535-4bfc-96a3-3b06a49b3655: Added replica on this server.
+2017-04-10T17:33:35.966446000 95.395523s info: Table 7f4648b8-e535-4bfc-96a3-3b06a49b3655: This server is Raft leader for term 1. Latest log index is 0.
+2017-04-10T17:37:32.254460000 331.683537s info: Table 025899ff-d316-41e6-a236-e1d5a4bd529a: Starting a new Raft election for term 1.
+2017-04-10T17:37:32.254705000 331.683781s info: Table 025899ff-d316-41e6-a236-e1d5a4bd529a: Added replica on this server.
+2017-04-10T17:37:32.287608000 331.716685s info: Table 025899ff-d316-41e6-a236-e1d5a4bd529a: This server is Raft leader for term 1. Latest log index is 0.
+2017-04-10T17:38:16.595995000 376.025071s info: Table 9f7a39a0-bb3d-4464-8604-f5e4836f6b8c: Starting a new Raft election for term 1.
+2017-04-10T17:38:16.596279000 376.025356s info: Table 9f7a39a0-bb3d-4464-8604-f5e4836f6b8c: Added replica on this server.
+2017-04-10T17:38:16.625928000 376.055005s info: Table 9f7a39a0-bb3d-4464-8604-f5e4836f6b8c: This server is Raft leader for term 1. Latest log index is 0.
