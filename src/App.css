@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -21,4 +27,44 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.navbar {
+  height: 60px;
+  background: grey;
+  line-height: 60px
+}
+
+.navbar .logo {
+  vertical-align: middle;
+  margin-left: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.text-input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid grey;
+  border-radius: 2px;
+  background: white;
+  resize: none;
+}
+
+.number-input {
+  font-weight: normal;
+}
+
+.label-text {
+  margin-right: 15px;
+}
+
+.add-journal-btn {
+  float: right;
+}
+
+.journal-list {
+  list-style: none;
+  margin: 0;
 }

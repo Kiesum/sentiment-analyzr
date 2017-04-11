@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.css'
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
@@ -6,6 +7,8 @@ import JournalList from './JournalList';
 import { getJournals } from './actions/index.js';
 import { connect } from 'react-redux';
 import AddJournal from './AddJournal';
+import Navbar from './Navbar'
+import { Grid } from 'react-bootstrap';
 
 class App extends Component {
 
@@ -16,10 +19,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h4>This is the dashboard</h4>
-        <JournalList journals={this.props.journals.journals} />
-        <AddJournal />
+      <div>  
+        <Navbar />
+        <Grid>
+          <AddJournal />
+          <JournalList journals={this.props.journals.journals} />
+        </Grid>
       </div>
     );
   }

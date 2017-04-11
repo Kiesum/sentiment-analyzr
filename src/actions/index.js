@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { GET_JOURNALS } from './types';
 import { ADD_JOURNAL } from './types';
+import { ADD_JOURNAL_FAILURE } from './types';
 
 export function getJournals() {
   return function(dispatch) {
@@ -30,7 +31,10 @@ export function addJournal(text, happiness_level) {
       });
     })
     .catch(function (error) {
-      console.log(error);
+      dispatch({
+        type: ADD_JOURNAL_FAILURE,
+        payload: response.data,
+      })
     }); 
   }
 }

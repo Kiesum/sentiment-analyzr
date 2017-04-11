@@ -60,6 +60,6 @@ function createJournalItem(req, res, next) {
   ]).run(connection, function(err, result) {
     if (err) throw err;
     console.log(JSON.stringify(result, null, 2));
-    res.json(result)
+    res.json(req.body)
   })
 }
