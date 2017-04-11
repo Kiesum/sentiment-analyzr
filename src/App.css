@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: ff-clan-web-pro, "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #e9ebee;
 }
 
 .App {
@@ -29,13 +30,14 @@ body {
   to { transform: rotate(360deg); }
 }
 
-.navbar {
+.nav-bar {
   height: 60px;
-  background: grey;
-  line-height: 60px
+  background: #486294;
+  line-height: 60px;
+  margin-bottom: 30px;
 }
 
-.navbar .logo {
+.nav-bar .logo {
   vertical-align: middle;
   margin-left: 30px;
   color: white;
@@ -62,9 +64,35 @@ body {
 
 .add-journal-btn {
   float: right;
+  background: #486294;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #6686c5;
+}
+
+.add-journal-btn:hover {
+  background: #374b73;
+  border: 1px solid #374b73;
+  color: white;
 }
 
 .journal-list {
   list-style: none;
-  margin: 0;
+  margin: 30px 0;
+  padding: 0;
 }
+
+.journal-list .list-item {
+  padding: 15px;
+  margin: 15px 0;
+  background-color: #FFFFFF;
+  border: 1px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  border-radius: 3px;
+}
+
+
+
+
+
+

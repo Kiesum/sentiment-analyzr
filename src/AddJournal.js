@@ -36,6 +36,10 @@ let AddJournal = ({ dispatch }) => {
           }} />
         </Col>
       </Row>
+      { happiness_level ? 
+        <img src={require('./img/happy.png')} /> :
+        null
+      }
       <Row>
         <Col xs={12} md={6} mdOffset={3}>
           <label><span className="label-text">How happy are you? (on a scale from -10 to 10)</span>

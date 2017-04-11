@@ -20,6 +20,7 @@ class App extends Component {
   render() {
     return (
       <div>  
+        <div className="background-cover"></div>
         <Navbar />
         <Grid>
           <AddJournal />

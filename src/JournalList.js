@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
 
-export default class JournalList extends Component {
-
-  getSentimentScore(text, happiness_level) {
+function getSentimentScore(text, happiness_level) {
     var text = text.replace(/(^\s*)|(\s*$)/gi,"");
     text = text.replace(/[ ]{2,}/gi," ");
     text = text.replace(/\n /,"\n");
@@ -11,12 +10,27 @@ export default class JournalList extends Component {
     return sentimentScore
   }
 
+function compare(a,b) {
+  if (getSentimentScore(a.text, a.happiness_level) > getSentimentScore(b.text, b.happiness_level))
+    return -1;
+  if (getSentimentScore(a.text, a.happiness_level) < getSentimentScore(b.text, b.happiness_level))
+    return 1;
+  return 0;
+}
+
+export default class JournalList extends Component {
+
   render() {
-    const allItems = this.props.journals.map((item, i) =>
-      <li className="list-item" key={i}>
-        <div>{item.text}</div>
-        <div>{this.getSentimentScore(item.text, item.happiness_level)}</div>
-      </li>  
+    const allUnsortedItems = this.props.journals.sort(compare);
+    const allItems = allUnsortedItems.map((item, i) =>
+      <Row key={i}>
+        <Col xs={12} md={6} mdOffset={3}>
+          <li className="list-item">
+            <p>{item.text}</p>
+            <span>Sentiment scrore: {getSentimentScore(item.text, item.happiness_level)}</span>
+          </li> 
+        </Col>
+      </Row> 
     );
     return (
       <ul className="journal-list">{allItems}</ul>
