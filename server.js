@@ -30,6 +30,7 @@ r.connect( {host: 'localhost', port: 28015}, function(err, conn) {
 })
 
 app.get('/journals', listJournalItems)
+app.post('/journals', createJournalItem)
 
 app.route('/journals')
   .get(listJournalItems)
@@ -42,17 +43,23 @@ function listJournalItems(req, res, next) {
       return next(err);
     }
 
-    //Retrieve all the todos in an array.
     cursor.toArray(function(err, result) {
       if(err) {
         return next(err);
       }
-      console.log(result)
       res.json(result);
     });
   });
 }
 
 function createJournalItem(req, res, next) {
-
+  var text = req.body.text;
+  var happiness_level = req.body.happiness_level;
+  r.db('care_cru').table('journals').insert([
+    { text: text, happiness_level: happiness_level }
+  ]).run(connection, function(err, result) {
+    if (err) throw err;
+    console.log(JSON.stringify(result, null, 2));
+    res.json(result)
+  })
 }
