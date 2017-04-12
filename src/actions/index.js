@@ -2,6 +2,7 @@ import axios from 'axios';
 import { GET_JOURNALS } from './types';
 import { ADD_JOURNAL } from './types';
 import { ADD_JOURNAL_FAILURE } from './types';
+import { ADD_JOURNAL_SERVER_FAILURE } from './types';
 
 export function getJournals() {
   return function(dispatch) {
@@ -32,9 +33,18 @@ export function addJournal(text, happiness_level) {
     })
     .catch(function (error) {
       dispatch({
-        type: ADD_JOURNAL_FAILURE,
-        payload: response.data,
+        type: ADD_JOURNAL_SERVER_FAILURE,
+        payload: 'There was a server error. Please try again later.',
       })
     }); 
+  }
+}
+
+export function errorAddJournal(error) {
+  return function(dispatch) {
+    dispatch({
+      type: ADD_JOURNAL_FAILURE,
+      payload: error
+    })
   }
 }

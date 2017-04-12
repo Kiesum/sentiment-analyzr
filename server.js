@@ -32,10 +32,6 @@ r.connect( {host: 'localhost', port: 28015}, function(err, conn) {
 app.get('/journals', listJournalItems)
 app.post('/journals', createJournalItem)
 
-app.route('/journals')
-  .get(listJournalItems)
-  .post(createJournalItem);
-
 function listJournalItems(req, res, next) {
   r.db('care_cru').table('journals').run(connection, function(err, cursor) {
     if(err) {
@@ -56,7 +52,7 @@ function createJournalItem(req, res, next) {
   var text = req.body.text;
   var happiness_level = req.body.happiness_level;
   r.db('care_cru').table('journals').insert([
-    { text: text, happiness_level: happiness_level }
+    { timestamp: new Date(), text: text, happiness_level: happiness_level }
   ]).run(connection, function(err, result) {
     if (err) throw err;
     console.log(JSON.stringify(result, null, 2));

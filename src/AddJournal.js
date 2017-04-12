@@ -1,13 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addJournal } from './actions';
+import { errorAddJournal } from './actions';
 import { Row, Col, Button } from 'react-bootstrap';
-
-
-function errorMessage(err) {
-  console.log('hello')
-  // error = err;
-}
 
 let AddJournal = ({ dispatch }) => {
   let text;
@@ -17,13 +12,7 @@ let AddJournal = ({ dispatch }) => {
       <form onSubmit={e => {
         e.preventDefault()
         if (!text.value.trim() || !happiness_level.value) {
-          if (!text.value.trim()) {
-            errorMessage('Please add some text');
-          }
-          if (!happiness_level.value) {
-            errorMessage('Please add a happiness rating');
-          }
-          return
+          return dispatch(errorAddJournal('You need to add both text and a happiness rating'))
         }
         dispatch(addJournal(text.value, happiness_level.value))
         text.value = '';
@@ -59,6 +48,7 @@ let AddJournal = ({ dispatch }) => {
       </form>
   )
 }
+
 AddJournal = connect()(AddJournal)
 
 export default AddJournal

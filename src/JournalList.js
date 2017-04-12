@@ -18,22 +18,28 @@ function compare(a,b) {
   return 0;
 }
 
-export default class JournalList extends Component {
-
-  render() {
-    const allUnsortedItems = this.props.journals.sort(compare);
-    const allItems = allUnsortedItems.map((item, i) =>
-      <Row key={i}>
-        <Col xs={12} md={6} mdOffset={3}>
-          <li className="list-item">
-            <p>{item.text}</p>
-            <span>Sentiment scrore: {getSentimentScore(item.text, item.happiness_level)}</span>
-          </li> 
-        </Col>
-      </Row> 
-    );
-    return (
-      <ul className="journal-list">{allItems}</ul>
-    )
+function formatDate(date) {
+  if (date) {
+    return date.slice(0, 10);
   }
 }
+
+const JournalList = ({journals}) => {
+  const allUnsortedItems = journals.sort(compare);
+  const allItems = allUnsortedItems.map((item, i) =>
+    <Row key={i}>
+      <Col xs={12} md={6} mdOffset={3}>
+        <li className="list-item">
+          <p>{item.text}</p>
+          <p className="sentiment-score">Sentiment scrore: {getSentimentScore(item.text, item.happiness_level)}</p>
+          <p className="date">{formatDate(item.timestamp)}</p>
+        </li> 
+      </Col>
+    </Row> 
+  );
+  return (
+    <ul className="journal-list">{allItems}</ul>
+  )
+}
+
+export default JournalList;

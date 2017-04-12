@@ -31,10 +31,11 @@ body {
 }
 
 .nav-bar {
-  height: 60px;
+  height: 40px;
   background: #486294;
-  line-height: 60px;
+  line-height: 40px;
   margin-bottom: 30px;
+  border-bottom: 1px solid #585858;
 }
 
 .nav-bar .logo {
@@ -42,7 +43,7 @@ body {
   margin-left: 30px;
   color: white;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .text-input {
@@ -56,6 +57,9 @@ body {
 
 .number-input {
   font-weight: normal;
+  border-radius: 2px;
+  border: 1px solid grey;
+  padding: 5px;
 }
 
 .label-text {
@@ -91,6 +95,17 @@ body {
   border-radius: 3px;
 }
 
+.sentiment-score {
+  font-weight: bold;
+}
+
+.error-warning {
+  margin-right: 15px;
+}
+
+.date {
+  font-style: italic;
+}
 
 
 
